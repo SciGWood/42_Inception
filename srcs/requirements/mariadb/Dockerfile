@@ -15,6 +15,6 @@ EXPOSE 3306
 #Run the lauch script
 COPY tools/configure.sh /tmp/configure.sh
 RUN chmod +x /tmp/configure.sh
-CMD ["sh", "/tmp/configure.sh"]
-#CMD ["mariadbd"]
+ENTRYPOINT ["sh", "/tmp/configure.sh"]
+CMD ["mariadbd"]
 #CMD ["tail", "-f"]

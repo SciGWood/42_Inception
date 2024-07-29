@@ -19,7 +19,7 @@ mysql -e "CREATE DATABASE IF NOT EXISTS ${MYSQL_DATABASE};"
 echo "Stopping MariaDB..."
 mysqladmin -u root shutdown
 
-#exec "$@"
+exec "$@"
 
 
 #service mariadb start
