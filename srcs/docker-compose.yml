@@ -1,10 +1,10 @@
 services:
   nginx:
     container_name: nginx
+    image: nginx
     build:
       context: ./requirements/nginx
       dockerfile: Dockerfile
-    image: nginx
     depends_on:
       - wordpress
     ports:
@@ -21,7 +21,7 @@ services:
     container_name: mariadb
     image: mariadb
     build:
-      context: requirements/mariadb
+      context: ./requirements/mariadb
       dockerfile: Dockerfile
     volumes:
       - mariadb:/var/lib/mysql
@@ -37,7 +37,7 @@ services:
     container_name: wordpress
     image: wordpress
     build:
-      context: requirements/wordpress
+      context: ./requirements/wordpress
       dockerfile: Dockerfile
     depends_on:
       - mariadb
@@ -68,4 +68,5 @@ volumes:
 
 networks:
   inception:
-    driver: bridge
+    name: inception
+    #driver: bridge

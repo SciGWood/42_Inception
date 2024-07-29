@@ -5,7 +5,7 @@
 echo "Starting MariaDB..."
 service mariadb start
 
-sleep 2
+sleep 10
 
 echo "Creating user..."
 mysql -e "CREATE USER IF NOT EXISTS \`${MYSQL_USER}\`@'%' IDENTIFIED BY '${MYSQL_PASSWORD}';"

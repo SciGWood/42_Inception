@@ -18,8 +18,8 @@ RUN mv /var/www/wordpress /var/www/html
 RUN chown -R root:root /var/www/html
 
 #Replace wordpress config file
-COPY conf/php-fpm.conf /etc/php/7.3/fpm/php-fpm.conf
-COPY conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
+COPY conf/php-fpm.conf /etc/php/7.4/fpm/php-fpm.conf
+COPY conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
 
 #Install WP CLI
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
@@ -39,5 +39,6 @@ EXPOSE 9000
 
 #Run wordpress launch script
 COPY tools/auto_config.sh /tmp/auto_config.sh
+RUN chmod +x /tmp/auto_config.sh
 CMD ["bash", "/tmp/auto_config.sh"]
 #CMD ["tail", "-f"]
