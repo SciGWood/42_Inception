@@ -40,5 +40,6 @@ EXPOSE 9000
 #Run wordpress launch script
 COPY tools/auto_config.sh /tmp/auto_config.sh
 RUN chmod +x /tmp/auto_config.sh
-CMD ["bash", "/tmp/auto_config.sh"]
+ENTRYPOINT ["bash", "/tmp/auto_config.sh"]
+CMD ["/usr/sbin/php-fpm7.4", "-F"]
 #CMD ["tail", "-f"]
