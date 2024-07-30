@@ -31,6 +31,8 @@ if [ ! -e /var/www/html/wp-config.php ]; then
 
 fi
 
+wp theme install twentytwentytwo --activate --allow-root --path="/var/www/html"
+
 exec "$@"
 #exec /usr/sbin/php-fpm7.4 -F
 
